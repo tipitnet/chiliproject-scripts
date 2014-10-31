@@ -12,6 +12,7 @@ git checkout $TARGET_BRANCH
 git merge origin/$TARGET_BRANCH
 bundle install
 source ./.env
+echo $MYSQL_ADDRESS
 cat ./.env
 bundle exec rake db:migrate
 touch ./tmp/restart.txt
