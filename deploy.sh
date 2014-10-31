@@ -1,3 +1,5 @@
+#!/bin/bash
+
 set -e
 
 TARGET_INSTANCE="$1"
@@ -10,6 +12,7 @@ git checkout $TARGET_BRANCH
 git merge origin/$TARGET_BRANCH
 bundle install
 source ./.env
+cat ./.env
 bundle exec rake db:migrate
 touch ./tmp/restart.txt
 
