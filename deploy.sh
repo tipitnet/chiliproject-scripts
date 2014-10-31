@@ -1,3 +1,5 @@
+set -e
+
 TARGET_INSTANCE="$1"
 TARGET_BRANCH="$2"
 
@@ -7,7 +9,8 @@ git fetch
 git checkout $TARGET_BRANCH
 git merge origin/$TARGET_BRANCH
 bundle install
-
+source .env
+bundle exec rake db:migrate
 touch /var/www/$TARGET_INSTANCE/tmp/restart.txt
 
 
