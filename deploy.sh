@@ -1,11 +1,13 @@
 TARGET_INSTANCE="$1"
 TARGET_BRANCH="$2"
 
+mv $TARGET_INSTANCE/.env /var/www/$TARGET_INSTANCE
 cd /var/www/$TARGET_INSTANCE
 git fetch
 git checkout $TARGET_BRANCH
 git merge origin/$TARGET_BRANCH
 bundle install
+
 touch /var/www/$TARGET_INSTANCE/tmp/restart.txt
 
 
