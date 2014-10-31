@@ -1,4 +1,6 @@
+TARGET = $1
 echo $BUILD_NUMBER >> version.txt
+echo $TARGET >> version.txt
 
 cd /var/www/$TARGET
 git pull origin deploy-spike
