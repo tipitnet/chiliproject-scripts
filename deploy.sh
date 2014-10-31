@@ -1,9 +1,9 @@
 echo $BUILD_NUMBER >> version.txt
 
-cd /var/www/chiliproject-inviteme
+cd /var/www/$TARGET
 git pull origin deploy-spike
 bundle install
-touch /var/www/chiliproject-inviteme/tmp/restart.txt
+touch /var/www/$TARGET/tmp/restart.txt
 
 
 # copy .env file
