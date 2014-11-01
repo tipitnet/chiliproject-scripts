@@ -10,10 +10,10 @@ cd /var/www/$TARGET_INSTANCE
 git fetch
 git checkout $TARGET_BRANCH
 git merge origin/$TARGET_BRANCH
-RACK_ENV=production bundle install
+RAILS_ENV=production bundle install --deployment
 source ./.env
 echo $MYSQL_ADDRESS
 cat ./.env
-RACK_ENV=production bundle exec rake db:migrate
+RAILS_ENV=production bundle exec rake db:migrate
 touch ./tmp/restart.txt
 
