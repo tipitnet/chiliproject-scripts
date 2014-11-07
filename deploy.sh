@@ -15,5 +15,6 @@ source ./.env
 echo $MYSQL_ADDRESS
 cat ./.env
 RAILS_ENV=production bundle exec rake db:migrate
+RAILS_ENV=production bundle exec rake db:migrate:plugins
 touch ./tmp/restart.txt
 
