@@ -10,6 +10,7 @@ cd /var/www/$TARGET_INSTANCE
 git fetch
 git checkout $TARGET_BRANCH
 git merge origin/$TARGET_BRANCH
+git submodule update
 RAILS_ENV=production bundle install --deployment
 source ./.env
 echo $MYSQL_ADDRESS
