@@ -18,6 +18,7 @@ touch log/received_emails.log
 sudo chown -R nginx:app_writers files log tmp public/plugin_assets
 sudo chmod -R 775 files log tmp public/plugin_assets
 
+bundle install --without development
 bundle exec rake generate_session_store
 bundle exec rake db:migrate
 bundle exec rake redmine:load_default_data
