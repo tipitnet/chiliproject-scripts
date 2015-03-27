@@ -2,6 +2,10 @@
 
 set -e
 
+gem install bundler
+sudo apt-get install libmysqlclient-dev
+sudo apt-get install imagemagick libmagickcore-dev libmagickwand-dev
+
 INSTANCE_NAME="$1"
 TARGET_BRANCH="$2"
 
@@ -17,6 +21,9 @@ mkdir -p tmp public/plugin_assets
 touch log/received_emails.log
 sudo chown -R nginx:app_writers files log tmp public/plugin_assets
 sudo chmod -R 775 files log tmp public/plugin_assets
+
+# get the config file -env
+source ./.env
 
 bundle install --without development
 bundle exec rake generate_session_store
